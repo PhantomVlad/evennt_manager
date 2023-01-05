@@ -21,7 +21,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_url(@event), notice: "Event was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to event_url(@event), notice: "Event was successfully updated."
     else
-      render :edit, status: :unprocessable_entity
+      render :edit
     end
   end
 
@@ -41,12 +41,11 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+
     def event_params
       params.require(:event).permit(:title, :address, :datetime, :description)
     end
