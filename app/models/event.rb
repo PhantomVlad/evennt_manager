@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  validate :adress, presence: true
-  validate :title, presence: true, length: {maximum:255}
-  validate :datetime, presence: true
+  validates :address, presence: true
+  validates :title, presence: true, length: {maximum:255}
+  validates :datetime, presence: true
 end
